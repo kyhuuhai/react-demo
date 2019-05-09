@@ -1,7 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import Login from './components/Login';
-import AllItems from './components/AllItems';
 import Contact from './components/Contact';
 import Service from './components/Service';
 import Body from './components/Body';

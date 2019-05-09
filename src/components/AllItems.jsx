@@ -24,7 +24,7 @@ class AllItems extends Component {
   }
 
   componentDidUpdate() {
-    if (window.sessionStorage.getItem('authenToken').length === 0) {
+    if (window.sessionStorage.getItem('authenToken') === '') {
       this.props.history.push('/login');
     }
   }

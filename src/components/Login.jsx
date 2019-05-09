@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ApiLib from '../lib/api';
+import ENV from '../env';
 
 export default class Login extends Component {
   isChange = event => {
@@ -18,7 +19,7 @@ export default class Login extends Component {
       password: this.state.password
     };
 
-    ApiLib.Post('http://172.16.0.152:3000/api/v1/login', user).then(result => {
+    ApiLib.Post(ENV.apiLink + '/api/v1/login', user).then(result => {
       if (result.status === 500) {
         alert(result.message);
       } else {
