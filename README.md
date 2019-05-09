@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 # react-demo
 
+=======
+>>>>>>> ce0a94c8007bbff08645a635556483e9a91a21ea
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
