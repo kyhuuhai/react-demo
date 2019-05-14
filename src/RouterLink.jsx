@@ -10,7 +10,7 @@ export default class RouterLink extends Component {
     return (
       <Fragment>
         <Route path="/login" component={Login} />
-        <Route path="/home" component={Body} />
+        <Route path="/" component={Body} />
         <Route path="/service" component={Service} />
         <Route path="/contact" component={Contact} />
       </Fragment>
