@@ -1,8 +1,8 @@
 import React, { Component, Fragment } from 'react';
-import Item from '../components/Item';
+import Post from '../components/Post';
 import { connect } from 'react-redux';
 import store from '../store/store';
-import { loadItems } from '../actions/action';
+import { loadPosts } from '../actions/PostAction';
 import {
   BrowserRouter as Router,
   Route,
@@ -10,9 +10,9 @@ import {
   withRouter
 } from 'react-router-dom';
 
-class AllItems extends Component {
+class AllPosts extends Component {
   componentDidMount() {
-    loadItems().then(data => {
+    loadPosts().then(data => {
       if (data.result.status === 500) {
         alert(data.result.message);
         window.sessionStorage.setItem('authenToken', '');
@@ -30,22 +30,22 @@ class AllItems extends Component {
   }
 
   render() {
-    const items = this.props.items.map((item, index) => {
+    const posts = this.props.posts.map((post, index) => {
       return (
-        <Fragment key={item.id}>
-          <Item item={item} authenToke={this.props.authenToken} />
+        <Fragment key={post.id}>
+          <Post post={post} authenToke={this.props.authenToken} />
         </Fragment>
       );
     });
 
-    return <Fragment>{items}</Fragment>;
+    return <Fragment>{posts}</Fragment>;
   }
 }
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    items: state.itemsReducer.items
+    posts: state.postsReducer.posts
   };
 };
 
-export default withRouter(connect(mapStateToProps)(AllItems));
+export default withRouter(connect(mapStateToProps)(AllPosts));

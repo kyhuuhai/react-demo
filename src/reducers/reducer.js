@@ -1,29 +1,32 @@
-const initItems = {
-  items: []
+const initPosts = {
+  posts: [],
+  post: {}
 };
 
-function itemsReducer(state = initItems, action) {
+function postsReducer(state = initPosts, action) {
   switch (action.type) {
-    case 'ADD_ITEM':
-      return { ...state, item: action.params };
-    case 'REMOVE_ITEM':
-      const newItems = state.items.filter(item => {
-        return item.id !== action.id;
+    case 'ADD_POST':
+      return { ...state, post: action.params };
+    case 'REMOVE_POST':
+      const newPosts = state.posts.filter(post => {
+        return post.id !== action.id;
       });
-      return { ...state, items: newItems };
-    case 'LOAD_ITEMS':
-      return { ...state, items: action.items };
-    case 'EDIT_ITEMS':
-      let items = Object.values({ ...state.items });
+      return { ...state, posts: newPosts };
+    case 'LOAD_POSTS':
+      return { ...state, posts: action.posts };
+    case 'EDIT_POST':
+      let posts = Object.values({ ...state.posts });
 
-      items.map(item => {
-        if (item.id === action.item.id) {
-          item.name = action.item.name;
-          item.description = action.item.description;
+      posts.map(post => {
+        if (post.id === action.post.id) {
+          post.name = action.post.name;
+          post.description = action.post.description;
         }
       });
 
-      return { ...state, items: items };
+      return { ...state, posts: posts };
+    case 'SHOW_POST':
+      return { ...state, post: action.post };
     default:
       break;
   }
@@ -31,4 +34,4 @@ function itemsReducer(state = initItems, action) {
   return state;
 }
 
-export default itemsReducer;
+export default postsReducer;

@@ -86,7 +86,7 @@ export default class Footer extends Component {
                 ipsam. Culpa consequatur occaecati.
               </p>
               <div className="subscribe-form">
-                <form id="mc-form" className="group" noValidate="true">
+                <form id="mc-form" className="group">
                   <input
                     type="email"
                     defaultValue

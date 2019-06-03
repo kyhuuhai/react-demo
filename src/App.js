@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
+import './App.scss';
 import Nav from './components/Nav';
 import Footer from './components/Footer';
 import RouterLink from './RouterLink';
@@ -11,7 +11,9 @@ class App extends Component {
       <div className="App">
         <Router>
           <Nav />
-          <RouterLink />
+          <section className="s-content s-content--narrow s-content--no-padding-bottom">
+            <RouterLink />
+          </section>
           <Footer />
         </Router>
       </div>

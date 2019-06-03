@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import ApiLib from '../lib/api';
 import ENV from '../env';
 
@@ -31,7 +31,7 @@ export default class Login extends Component {
 
   render() {
     return (
-      <div className="container login-container">
+      <Fragment>
         <form onSubmit={event => this.login(event)}>
           <div className="form-row">
             <div className="form-group col-md-6">
@@ -57,7 +57,7 @@ export default class Login extends Component {
             </button>
           </div>
         </form>
-      </div>
+      </Fragment>
     );
   }
 }

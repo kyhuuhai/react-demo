@@ -1,7 +1,7 @@
 import ApiLib from '../lib/api';
 import ENV from '../env';
 
-export async function loadItems() {
+export async function loadPosts() {
   const authenToken = window.sessionStorage.getItem('authenToken');
 
   let response = await new Promise(resolve => {
@@ -12,7 +12,21 @@ export async function loadItems() {
     });
   });
 
-  return { type: 'LOAD_ITEMS', items: response.items, result: response };
+  return { type: 'LOAD_POSTS', posts: response.items, result: response };
+}
+
+export async function showPost() {
+  const authenToken = window.sessionStorage.getItem('authenToken');
+
+  let response = await new Promise(resolve => {
+    ApiLib.Get(ENV.apiLink + '/api/v1/items', authenToken).then(function(
+      result
+    ) {
+      return resolve(result);
+    });
+  });
+
+  return { type: 'SHOW_POST', post: response.items[0], result: response };
 }
 
 export async function editItems(item) {

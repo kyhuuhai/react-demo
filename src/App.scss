@@ -1,0 +1,58 @@
+.s-extra {
+  overflow: auto;
+}
+
+.masonry-wrap {
+  max-width: none;
+  width: 1440px;
+  overflow: hidden;
+}
+
+.preview-post {
+  max-width: none;
+  width: 1440px;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.post {
+  display: flex;
+
+  margin: 20px;
+
+  img {
+    height: 450px;
+    width: 100%;
+  }
+
+  a {
+    width: 100%;
+  }
+
+  .post-preview {
+    display: inline-block;
+    margin-left: 20px;
+
+    .title {
+      font-weight: bold;
+      font-size: 24px;
+      margin-bottom: 0;
+    }
+
+    .time {
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+
+    .pre-content {
+      font-size: 16px;
+    }
+  }
+}
+
+.post-detail {
+  .post-image-content {
+    padding: 0;
+    margin-top: 20px;
+  }
+}

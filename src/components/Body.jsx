@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
-import Home from '../components/Home';
-import ItemContent from '../components/ItemContent';
+import AllPosts from '../components/AllPosts';
 
 export default class Body extends Component {
   render() {
     return (
       <div id="top">
-        <Home />
-        <ItemContent />
+        <AllPosts />
       </div>
     );
   }
