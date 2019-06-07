@@ -1,0 +1,13 @@
+import React, { Component } from 'react';
+import CKEditor from 'ckeditor4-react';
+
+export default class CreatePost extends Component {
+  render() {
+    return (
+      <div>
+        <h2>Using CKEditor 4 in React</h2>
+        <CKEditor data="<p>Hello from CKEditor 4!</p>" />
+      </div>
+    );
+  }
+}

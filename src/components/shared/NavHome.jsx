@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import {
   BrowserRouter as Router,
   Route,
@@ -6,68 +6,17 @@ import {
   withRouter
 } from 'react-router-dom';
 
-export class Nav extends Component {
-  // eslint-disable-next-line no-useless-constructor
-  constructor(props) {
-    super(props);
-  }
-
-  logOut = () => {
-    sessionStorage.setItem('authenToken', '');
-
-    this.props.history.push('/login');
-  };
-
+export class NavHome extends Component {
   render() {
-    // let header;
-
-    // if (sessionStorage.getItem('authenToken') !== null) {
-    //   header = (
-    //     <Fragment>
-    //       <li className="nav-item active">
-    //         <Link to="/home" className="nav-link">
-    //           Home
-    //         </Link>
-    //       </li>
-    //       <li className="nav-item">
-    //         <Link to="/service" className="nav-link">
-    //           Service
-    //         </Link>
-    //       </li>
-    //       <li className="nav-item">
-    //         <Link to="/contact" className="nav-link">
-    //           Contact
-    //         </Link>
-    //       </li>
-    //       <li className="nav-item">
-    //         <p className="nav-link p-link" onClick={this.logOut}>
-    //           Log Out
-    //         </p>
-    //       </li>
-    //     </Fragment>
-    //   );
-    // } else {
-    //   header = (
-    //     <Fragment>
-    //       <li className="nav-item">
-    //         <Link to="/login" className="nav-link">
-    //           Login
-    //         </Link>
-    //       </li>
-    //     </Fragment>
-    //   );
-    // }
-
     return (
       <section className="s-pageheader s-pageheader--home">
         <header className="header">
           <div className="header__content row">
             <div className="header__logo">
-              <a className="logo" href="index.html">
+              <Link className="logo" to="/">
                 <img src="/images/logo.svg" alt="Homepage" />
-              </a>
-            </div>{' '}
-            {/* end header__logo */}
+              </Link>
+            </div>
             <ul className="header__social">
               <li>
                 <a href="#0">
@@ -133,7 +82,9 @@ export class Nav extends Component {
               <h2 className="header__nav-heading h6">Site Navigation</h2>
               <ul className="header__nav">
                 <li className="current">
-                  <a href="index.html">Home</a>
+                  <Link className="logo" to="/">
+                    Home
+                  </Link>
                 </li>
                 <li className="has-children">
                   <a href="#0">Categories</a>
@@ -321,4 +272,4 @@ export class Nav extends Component {
   }
 }
 
-export default withRouter(Nav);
+export default withRouter(NavHome);

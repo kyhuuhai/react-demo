@@ -18,12 +18,14 @@ class ItemContent extends Component {
   }
 
   componentDidMount() {
-    showPost().then(data => {
+    showPost(this.props.match.params.id).then(data => {
       if (data.result.status === 500) {
         alert(data.result.message);
         window.sessionStorage.setItem('authenToken', '');
         this.props.history.push('/login');
       } else {
+        console.log(data);
+
         store.dispatch(data);
       }
     });
@@ -55,14 +57,7 @@ class ItemContent extends Component {
           </div>{' '}
           {/* end s-content__media */}
           <div className="col-full">
-            <p className="lead">
-              Duis ex ad cupidatat tempor Excepteur cillum cupidatat fugiat
-              nostrud cupidatat dolor sunt sint sit nisi est eu exercitation
-              incididunt adipisicing veniam velit id fugiat enim mollit amet
-              anim veniam dolor dolor irure velit commodo cillum sit nulla
-              ullamco magna amet magna cupidatat qui labore cillum sit in tempor
-              veniam consequat non laborum adipisicing aliqua ea nisi sint.
-            </p>
+            <p className="lead">{this.props.post.description}</p>
             <p>
               Duis ex ad cupidatat tempor Excepteur cillum cupidatat fugiat
               nostrud cupidatat dolor sunt sint sit nisi est eu exercitation

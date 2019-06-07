@@ -5,28 +5,28 @@ export async function loadPosts() {
   const authenToken = window.sessionStorage.getItem('authenToken');
 
   let response = await new Promise(resolve => {
-    ApiLib.Get(ENV.apiLink + '/api/v1/items', authenToken).then(function(
+    ApiLib.Get(ENV.apiLink + '/api/v1/posts', authenToken).then(function(
       result
     ) {
       return resolve(result);
     });
   });
 
-  return { type: 'LOAD_POSTS', posts: response.items, result: response };
+  return { type: 'LOAD_POSTS', posts: response.posts, result: response };
 }
 
-export async function showPost() {
+export async function showPost(post_id) {
   const authenToken = window.sessionStorage.getItem('authenToken');
 
   let response = await new Promise(resolve => {
-    ApiLib.Get(ENV.apiLink + '/api/v1/items', authenToken).then(function(
-      result
-    ) {
-      return resolve(result);
-    });
+    ApiLib.Get(ENV.apiLink + '/api/v1/posts/' + post_id, authenToken).then(
+      function(result) {
+        return resolve(result);
+      }
+    );
   });
 
-  return { type: 'SHOW_POST', post: response.items[0], result: response };
+  return { type: 'SHOW_POST', post: response.post, result: response };
 }
 
 export async function editItems(item) {
@@ -34,7 +34,7 @@ export async function editItems(item) {
 
   let response = await new Promise(resolve => {
     ApiLib.Put(
-      `${ENV.apiLink}/api/v1/items/${item.id}`,
+      `${ENV.apiLink}/api/v1/posts/${item.id}`,
       item,
       authenToken
     ).then(function(result) {
@@ -42,14 +42,14 @@ export async function editItems(item) {
     });
   });
 
-  return { type: 'EDIT_ITEMS', item: response.item, result: response };
+  return { type: 'EDIT_ITEMS', item: response.post, result: response };
 }
 
 export async function removeItem(id) {
   const authenToken = window.sessionStorage.getItem('authenToken');
 
   let response = await new Promise(resolve => {
-    ApiLib.Delete(`${ENV.apiLink}/api/v1/items/${id}`, authenToken).then(
+    ApiLib.Delete(`${ENV.apiLink}/api/v1/posts/${id}`, authenToken).then(
       function(result) {
         return resolve(result);
       }
@@ -63,12 +63,12 @@ export async function searchItemsByCategory(term) {
   const authenToken = window.sessionStorage.getItem('authenToken');
 
   let response = await new Promise(resolve => {
-    ApiLib.Get(`${ENV.apiLink}/api/v1/items?search=${term}`, authenToken).then(
+    ApiLib.Get(`${ENV.apiLink}/api/v1/posts?search=${term}`, authenToken).then(
       function(result) {
         return resolve(result);
       }
     );
   });
 
-  return { type: 'LOAD_ITEMS', items: response.items, result: response };
+  return { type: 'LOAD_ITEMS', items: response.posts, result: response };
 }

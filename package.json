@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "ckeditor4-react": "^1.0.0-beta",
     "history": "^4.9.0",
     "i": "^0.3.6",
     "moment": "^2.24.0",
